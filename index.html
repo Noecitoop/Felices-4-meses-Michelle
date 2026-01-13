@@ -13,22 +13,22 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             overflow: hidden;
             text-align: center;
         }
 
         h1 {
-            font-size: 2.6em;
+            font-size: 2.5em;
             color: #b30059;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         p {
-            font-size: 1.25em;
+            font-size: 1.2em;
             color: #800040;
-            margin-bottom: 35px;
-            max-width: 700px;
+            margin-bottom: 40px;
+            max-width: 90%;
         }
 
         button {
@@ -43,11 +43,13 @@
         #si {
             background-color: #ff1a75;
             color: white;
-            margin-right: 15px;
+            z-index: 2;
         }
 
         #no {
             background-color: #d9d9d9;
+            position: absolute;
+            z-index: 1;
         }
 
         .corazon {
@@ -63,71 +65,4 @@
                 opacity: 1;
             }
             to {
-                transform: translateY(-10vh);
-                opacity: 0;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <h1>Michelle… 💕</h1>
-    <p>¿Quieres seguir siendo mi novia?</p>
-
-    <div>
-        <button id="si" onclick="respuestaSi()">Sí 💖</button>
-        <button id="no" onclick="respuestaNo()">No 😢</button>
-    </div>
-
-    <script>
-        let escalaNo = 1;
-        let escalaSi = 1;
-
-        function respuestaNo() {
-            escalaNo -= 0.15;
-            if (escalaNo < 0.25) escalaNo = 0.25;
-
-            escalaSi += 0.18;
-
-            document.getElementById("no").style.transform = `scale(${escalaNo})`;
-            document.getElementById("si").style.transform = `scale(${escalaSi})`;
-
-            crearCorazon();
-        }
-
-        function respuestaSi() {
-            document.body.innerHTML = `
-                <h1>💖 Felices 4 meses 💖</h1>
-                <p>
-                Amor de mi vidaaaa, nunca olvides que te amo con toda mi almaaa y que estoy
-                super orgulloso de tiii.<br><br>
-                Gracias por ir de la mano conmigo y escribir una nueva historia desde aquel
-                <strong>13 de septiembre de 2025</strong>.<br><br>
-                Att.<br>
-                <strong>Tu admirador secreto 💌</strong>
-                </p>
-            `;
-
-            for (let i = 0; i < 40; i++) {
-                crearCorazon();
-            }
-        }
-
-        function crearCorazon() {
-            const corazon = document.createElement("div");
-            corazon.className = "corazon";
-            corazon.innerText = "❤️";
-            corazon.style.left = Math.random() * 100 + "vw";
-            corazon.style.animationDuration = (Math.random() * 3 + 3) + "s";
-            document.body.appendChild(corazon);
-
-            setTimeout(() => {
-                corazon.remove();
-            }, 6000);
-        }
-
-        setInterval(crearCorazon, 900);
-    </script>
-
-</body>
-</html>
+                transform: translateY(-10vh
